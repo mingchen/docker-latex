@@ -1,6 +1,6 @@
 # docker-latex
 
-A docker image for `latex` compile with `texlive`.
+A docker image for [latex](https://www.latex-project.org/) compile with [TeX Live](https://www.tug.org/texlive/).
 
 Scheduled build weekly to get the latest software and patches.
 
@@ -16,7 +16,7 @@ Docker image cross platform build to support following platforms:
 
 ## Usage
 
-Build `pdf` from `.tex` file:
+To build `pdf` from `.tex` file:
 
 ```sh
 docker run --rm -i -v `pwd`:/data mingc/latex pdflatex foo.tex
@@ -26,6 +26,13 @@ To preserve build files user id and group id, pass `--user="$(id -u):$(id -g)"` 
 
 ```sh
 docker run --rm -i --user="$(id -u):$(id -g)" -v `pwd`:/data mingc/latex pdflatex foo.tex
+```
+
+To run interactive docker shell:
+
+```sh
+docker run --rm -it --user="$(id -u):$(id -g)" -v `pwd`:/data mingc/latex bash
+root@5b9d4a3eefe4:/data#
 ```
 
 Use following command o get the `pdflatex` version in docker image:
@@ -59,3 +66,8 @@ Checkout [templates](templates) for some template examples.
 ## Alternatives
 
 - [blang/latex-docker: latex docker build on ubuntu 16.04](https://github.com/blang/latex-docker)
+
+## References
+
+- https://www.latex-project.org/
+- https://www.tug.org/texlive/

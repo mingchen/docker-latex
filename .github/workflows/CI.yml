@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  workflow_dispatch:  # manual trigger
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Pre build
+      run: |
+        uname -a
+        df -h
+        docker images
+        echo "GITHUB_SHA: $GITHUB_SHA"
+
+        # Remove exist images to free disk space
+        docker image prune -a -f
+        #docker rmi $(docker images | grep -v IMAGE | awk '{print $3}')
+        docker images
+
+        # check disk space one more time
+        df -h
+
+    - name: Build Docker Image
+      run: |
+        make docker
+        ./dockerlatex.sh pdflatex -version
+        ./dockerlatex.sh pdflatex templates/book-template-1.tex

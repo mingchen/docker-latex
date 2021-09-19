@@ -1,8 +1,12 @@
 # docker-latex
 
+[![docker icon](https://dockeri.co/image/mingc/latex)](https://hub.docker.com/r/mingc/latex/)
+[![CI](https://github.com/mingchen/docker-latex/actions/workflows/CI.yml/badge.svg)](https://github.com/mingchen/docker-latex/actions/workflows/CI.yml)
+[![Docker Image CD](https://github.com/mingchen/docker-latex/actions/workflows/docker-image.yml/badge.svg)](https://github.com/mingchen/docker-latex/actions/workflows/docker-image.yml)
+
 A docker image for [latex](https://www.latex-project.org/) compile with [TeX Live](https://www.tug.org/texlive/).
 
-Scheduled build weekly to get the latest software and patches.
+Scheduled build weekly to get the latest softwares and patches.
 
 ## Supported Platforms
 
@@ -53,6 +57,14 @@ Compiled with zlib 1.2.11; using zlib 1.2.11
 Compiled with xpdf version 4.01
 ```
 
+## setting the default paper size
+
+The default is to configure the programs for the A4 paper size. To make the default be 8.5x11 letter-size paper, you can run:
+
+```sh
+tlmgr paper letter
+```
+
 ## Build Image
 
 ```sh
@@ -61,13 +73,14 @@ docker build -t mingc/latex .
 
 ## Latex Templates
 
-Checkout [templates](templates) for some template examples.
+Checkout [templates](https://github.com/mingchen/docker-latex/tree/master/templates) for some template examples.
 
 ## Alternatives
 
-- [blang/latex-docker: latex docker build on ubuntu 16.04](https://github.com/blang/latex-docker)
+- [blang/latex-docker](https://github.com/blang/latex-docker): latex docker build on ubuntu 16.04
 
 ## References
 
 - https://www.latex-project.org/
 - https://www.tug.org/texlive/
+- https://www.tug.org/texlive/quickinstall.html

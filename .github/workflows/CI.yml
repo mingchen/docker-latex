@@ -34,5 +34,8 @@ jobs:
     - name: Build Docker Image
       run: |
         make docker
+
+    - name: Test
+      run: |
         ./dockerlatex.sh pdflatex -version
         ./dockerlatex.sh pdflatex templates/book-template-1.tex

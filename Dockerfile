@@ -3,6 +3,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -q && \
     apt-get install -y -qq --no-install-recommends \
+        biber \
         curl \
         git \
         gnuplot \
@@ -15,4 +16,3 @@ RUN apt-get update -q && \
 WORKDIR /data
 
 VOLUME ["/data"]
-

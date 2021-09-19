@@ -39,23 +39,11 @@ jobs:
           org.opencontainers.image.url=https://hub.docker.com/r/mingc/latex
           org.opencontainers.image.vendor=Ming Chen
 
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v1
-      with:
-        platforms: amd64,arm64,arm,mips64,mips64le,riscv64,s390x,
-
-    - name: Available platforms
-      run: echo ${{ steps.qemu.outputs.platforms }}
-
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
-
     - name: Pre build
       run: |
         uname -a
         df -h
         docker images
-        docker ps -a
         echo "GITHUB_SHA: $GITHUB_SHA"
 
         # Remove exist images to free disk space
@@ -65,6 +53,14 @@ jobs:
 
         # check disk space one more time
         df -h
+
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+      with:
+        platforms: amd64,arm64,arm,mips64,mips64le,riscv64,s390x,
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
 
     - name: Login to DockerHub
       if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'

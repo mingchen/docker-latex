@@ -108,3 +108,4 @@ Checkout [templates](https://github.com/mingchen/docker-latex/tree/master/templa
 - https://www.latex-project.org/
 - https://www.tug.org/texlive/
 - https://www.tug.org/texlive/quickinstall.html
+- https://ctan.org/mirrors

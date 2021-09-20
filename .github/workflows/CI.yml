@@ -37,5 +37,8 @@ jobs:
 
     - name: Test
       run: |
+        docker images
+        ./dockerlatex.sh env
+        ./dockerlatex.sh ls -l /usr/local/bin/
         ./dockerlatex.sh pdflatex -version
         ./dockerlatex.sh pdflatex templates/book-template-1.tex

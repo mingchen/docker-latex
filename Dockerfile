@@ -6,6 +6,7 @@ RUN apt-get update -q && \
     apt-get install -y -qq --no-install-recommends \
         ca-certificates  \
         curl \
+        ghostscript \
         git \
         gnuplot \
         make \

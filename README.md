@@ -18,6 +18,7 @@ A docker image for [latex](https://www.latex-project.org/) compile with the late
 - ps2eps
 - ps4pdf
 - pslatex
+- gs (ghostscript)
 
 Base image: `ubuntu 21.04`.
 

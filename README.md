@@ -5,6 +5,8 @@
 [![CI](https://github.com/mingchen/docker-latex/actions/workflows/CI.yml/badge.svg)](https://github.com/mingchen/docker-latex/actions/workflows/CI.yml)
 [![Docker Image CD](https://github.com/mingchen/docker-latex/actions/workflows/docker-image.yml/badge.svg)](https://github.com/mingchen/docker-latex/actions/workflows/docker-image.yml)
 
+[Dockerfile](https://github.com/mingchen/docker-latex/blob/master/Dockerfile)
+
 ## Introduction
 
 A docker image for [latex](https://www.latex-project.org/) compile with the latest release of [TeX Live 2021 full installation](https://www.tug.org/texlive/).
@@ -287,6 +289,16 @@ Convert pdf to image:
 ```sh
 docker run -it --rm -v `pwd`:/data mingc/latex convert -density 300 input.pdf -quality 90 output.jpg
 ```
+
+By default it will generate jpg files for each page. The file name pattern is `output-<page number>.jpg`.
+
+To specific output file name pattern:
+
+```sh
+docker run -it --rm -v `pwd`:/data mingc/latex convert -density 300 input.pdf -quality 90 output_%03d.jpg
+```
+
+It will generate `output_000.jpg`, `output_001.jpg`, `output_002.jpg` ...
 
 Convert a single page to image:
 
@@ -679,3 +691,5 @@ Checkout [templates](https://github.com/mingchen/docker-latex/tree/master/templa
 - https://ctan.org/mirrors
 - [pdfpages](http://www.ctan.org/tex-archive/macros/latex/contrib/pdfpages)
 - [pdfjam](https://github.com/DavidFirth/pdfjam)
+- [ImageMagick](https://imagemagick.org/)
+

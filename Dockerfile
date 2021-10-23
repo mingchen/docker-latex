@@ -9,6 +9,7 @@ RUN apt-get update -q && \
         ghostscript \
         git \
         gnuplot \
+        imagemagick \
         make \
         jq \
         python3-pygments \

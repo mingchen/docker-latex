@@ -12,6 +12,7 @@ RUN apt-get update -q && \
         imagemagick \
         make \
         jq \
+        qpdf \
         python3-pygments \
         wget \
         vim-tiny && \

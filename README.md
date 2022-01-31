@@ -114,6 +114,15 @@ Extract pages from exist pdf file:
 docker run -it --rm -v `pwd`:/data mingc/latex pdfjam -o out.pdf book1.pdf 3,5-7
 ```
 
+Rotate file:
+```sh
+# rotate in.pdf in 90 degree
+docker run -it --rm -v `pwd`:/data mingc/latex pdfjam --angle 90 in.pdf
+
+# rotate in.pdf in -90 degree
+docker run -it --rm -v `pwd`:/data mingc/latex pdfjam --angle -90 in.pdf
+```
+
 `pdfjam` usage:
 
 ```

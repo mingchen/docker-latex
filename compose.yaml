@@ -1,0 +1,6 @@
+services:
+  docker-latex:
+    image: mingc/latex
+    build:
+      context: .
+      dockerfile: Dockerfile
